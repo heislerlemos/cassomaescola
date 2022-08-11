@@ -2,14 +2,15 @@
   "name": "cassomaescola",
   "version": "1.0.0",
   "description": "Shool project app ",
-  "main": "nodemon server.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.20.0",
+    "ejs": "^3.1.8",
     "express": "^4.18.1",
     "mongodb": "^4.8.1"
   },

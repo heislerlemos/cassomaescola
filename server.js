@@ -6,22 +6,51 @@ const app = express();
 const MongoClient = require('mongodb').MongoClient
 
 
+
 app.use(bodyParser.urlencoded({ extended: true }))
 
 
+MongoClient.connect("mongodb+srv://heisler:dude007@cluster0.oxiqyov.mongodb.net/?retryWrites=true&w=majority" ,{ useUnifiedTopology: true })
+  .then(client => {
+    console.log('connectado na base de dados')
+    const db = client.db('cassomaescola')
+    const studentCollection = db.collection('students')
 
+
+app.set('view engine', 'ejs')
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html')
+
+  db.collection('students').find().toArray()
+    
+    .then(results => {
+          res.render('index.ejs', { students: results })
+      console.log(results)
+    })
+    
+    .catch(error => console.error(error))
+
+
 })
 
 
 
+    app.post('/students', (req, res) => {
+  
+  studentCollection.insertOne(req.body)
 
-app.post('/quotes', (req, res) => {
-  console.log('Hellooooooooooooooooo!')
-  console.log(req.body)
+    .then(result => {
+      console.log(result)
+    })
+    .catch(error => console.error(error))
 })
+
+
+  })
+
+    
+
+
 
 
 app.listen(3000, function() {
