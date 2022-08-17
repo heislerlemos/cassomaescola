@@ -11,7 +11,7 @@ const connectDB = async() => {
 			//useCreateIndex: true
 		})
 
-		console.log(`O servidor mongodb esta a connectado 💾 t)`);
+		console.log(`O servidor mongodb esta a connectado 💾 )`);
 	}catch(err){
 
 		console.log(err);

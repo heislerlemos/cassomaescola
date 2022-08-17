@@ -7,7 +7,12 @@ const connectDB = require('./server/database/connection');
 const studentRoute = require('./server/router/student');
 
 
+
 //app.use(bodyParser.urlencoded({ extended: true }))
+// Setting up basic middleware for all Express requests
+app.use(bodyParser.urlencoded({ extended: false })); // Parses urlencoded bodies
+app.use(bodyParser.json()); // Send JSON responses
+
 
 // Mongo connectiion
 connectDB();
@@ -24,3 +29,6 @@ app.use('/students', studentRoute  );
 app.listen(3000, function() {
   console.log('O servidor esta em produção na porta  3000')
 })
+
+
+module.exports = app
