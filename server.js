@@ -5,6 +5,9 @@ const app = express();
 const path = require('path'); 
 const connectDB = require('./server/database/connection');
 const studentRoute = require('./server/router/student');
+const loginRoute = require('./server/router/login');
+const registerRoute = require('./server/router/register');
+
 
 
 
@@ -25,6 +28,9 @@ app.use(bodyParser.json())
 // routes inside the database connection
 
 app.use('/students', studentRoute  );
+app.use('/login', loginRoute  );
+app.use('/register', registerRoute  );
+
 
 app.listen(3000, function() {
   console.log('O servidor esta em produção na porta  3000')

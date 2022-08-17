@@ -4,6 +4,8 @@ const router = express.Router();
 var studentModel = require("../model/studentmodel"); 
 
 router.get("/", async (request, response) => {
+  response.render('index.ejs', {nome : 'heisler'})
+  
     const students = new studentModel.find({});
     try {
         response.send(students);
