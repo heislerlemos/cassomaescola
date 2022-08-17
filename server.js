@@ -15,7 +15,7 @@ const registerRoute = require('./server/router/register');
 // Setting up basic middleware for all Express requests
 app.use(bodyParser.urlencoded({ extended: false })); // Parses urlencoded bodies
 app.use(bodyParser.json()); // Send JSON responses
-
+app.use(express.urlencoded({extended: false}))
 
 // Mongo connectiion
 connectDB();
