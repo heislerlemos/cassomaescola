@@ -15,7 +15,7 @@ router.post('/', async (req, res) => {
 		users.push({
 			id: Date.now().toString(),
 			nome: req.body.nome,
-			username: req.body.username,
+			email: req.body.email,
 			password: hashedPassword
 
 		})
