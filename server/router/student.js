@@ -4,14 +4,18 @@ const router = express.Router();
 var studentModel = require("../model/studentmodel"); 
 
 router.get("/", async (request, response) => {
-  response.render('index.ejs', {nome : 'heisler'})
+  response.render('index.ejs', {nome : 'ruth'})
   
-    const students = new studentModel.find();
+  /**  const students = await studentModel.find({});
+
     try {
         response.send(students);
-    } catch (error) {
-      response.status(500).send(error);
+
+    } catch (error)  {
+        response.status(404).json({ error });
+        return;
     }
+**/
 }); 
 
 

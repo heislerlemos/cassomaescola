@@ -13,6 +13,7 @@ const passport = require('passport');
 const flash = require('express-flash');
 const session = require('express-session');
 const dotenv = require('dotenv').config()
+const bcrypt = require('bcrypt')
 
 const initializePassport = require('./passport-config');
 
