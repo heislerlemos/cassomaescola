@@ -1,4 +1,6 @@
-
+if(process.env.NODE_ENV !== 'production') {
+  require('dotenv').config
+}
 
 const express = require('express');
 const bodyParser= require('body-parser')
@@ -15,33 +17,39 @@ const session = require('express-session');
 const dotenv = require('dotenv').config()
 const bcrypt = require('bcrypt')
 
+
+
 const initializePassport = require('./passport-config');
 
 initializePassport(
   passport, 
   email => users.find(user => user.email === email),
-  id => users.find(user => user.email === email)
+  id => users.find(user => user.id === id)
 )
 
-const users = []
+global.users = []
+
+
+
+
 
 //app.use(bodyParser.urlencoded({ extended: true }))
 // Setting up basic middleware for all Express requests
 app.use(bodyParser.urlencoded({ extended: false })); // Parses urlencoded bodies
 app.use(bodyParser.json()); // Send JSON responses
-app.use(express.urlencoded({extended: false}))
 app.use(flash())
+
 app.use(session({
 secret: process.env.SESSION_SECRET, 
 resave: false,
-saveUnitialized: false ,
-resave: true,
-saveUninitialized: true
-
-}))
+saveUninitialized: false,
+   cookie: { sameSite: 'strict' },
+}),
+);
 
 app.use(passport.initialize())
 app.use(passport.session())
+
 
 // Mongo connectiion
 connectDB();
@@ -53,9 +61,15 @@ app.use(bodyParser.json())
 
 // routes inside the database connection
 
-app.use('/students', studentRoute  );
+app.use('/', studentRoute  );
 app.use('/login', loginRoute  );
 app.use('/register', registerRoute  );
+
+app.post('/login', passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/login',
+  failureFlash: true
+}))
 
 
 app.listen(3000, function() {

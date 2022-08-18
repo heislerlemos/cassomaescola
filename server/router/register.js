@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const users = [];
 const bcrypt = require('bcrypt')
 
 router.get('/', async (req, res ) => {
 	  res.render('register.ejs');
 
 })
+
+
 
 
 router.post('/', async (req, res) => {
@@ -24,7 +25,6 @@ router.post('/', async (req, res) => {
 		res.redirect('/register')
 
 	}
-	console.log(users)
 
 })
 
