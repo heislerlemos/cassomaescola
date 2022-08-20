@@ -3,8 +3,23 @@ const express = require('express');
 const router = express.Router();
 var studentModel = require("../model/studentmodel"); 
 
-router.get("/", async (request, response) => {
-  response.render('index.ejs', {nome : 'ruth'})
+function checkAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next()
+  }
+
+  res.redirect('/login')
+}
+
+function checkNotAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return res.redirect('/')
+  }
+  next()
+}
+  
+router.get("/",  checkAuthenticated, async(req, res) => {
+res.render('index.ejs', {nome : req.user.nome})
   
   /**  const students = await studentModel.find({});
 
@@ -43,6 +58,8 @@ router.put('/', (req, res) => {
 router.delete('/', (req, res) => {
 
 })
+
+
 
 
 module.exports = router;

@@ -2,7 +2,22 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt')
 
-router.get('/', async (req, res ) => {
+function checkAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next()
+  }
+
+  res.redirect('/login')
+}
+
+function checkNotAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return res.redirect('/')
+  }
+  next()
+}
+
+router.get('/',checkNotAuthenticated, async (req, res ) => {
 	  res.render('register.ejs');
 
 })
@@ -10,7 +25,7 @@ router.get('/', async (req, res ) => {
 
 
 
-router.post('/', async (req, res) => {
+router.post('/', checkNotAuthenticated ,async (req, res) => {
 	try {
 		const hashedPassword = await bcrypt.hash(req.body.password, 10 )
 		users.push({

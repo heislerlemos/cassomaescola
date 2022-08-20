@@ -16,6 +16,7 @@ const flash = require('express-flash');
 const session = require('express-session');
 const dotenv = require('dotenv').config()
 const bcrypt = require('bcrypt')
+const methodOverride = require('method-override');
 
 
 
@@ -49,7 +50,7 @@ saveUninitialized: false,
 
 app.use(passport.initialize())
 app.use(passport.session())
-
+app.use(methodOverride('_method'))
 
 // Mongo connectiion
 connectDB();
@@ -70,6 +71,8 @@ app.post('/login', passport.authenticate('local', {
   failureRedirect: '/login',
   failureFlash: true
 }))
+
+
 
 
 app.listen(3000, function() {
