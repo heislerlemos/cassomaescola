@@ -26,6 +26,22 @@ router.get('/',checkNotAuthenticated, async (req, res ) => {
 
 
 router.post('/', checkNotAuthenticated ,async (req, res) => {
+	
+	   Users=new User({email: req.body.email, username : req.body.username});
+  
+          User.register(Users, req.body.password, function(err, user) {
+            if (err) {
+              //res.json({success:false, message:"Your account could not be saved. Error: ", err}) 
+              		res.redirect('/register')
+
+            }else{
+             // res.json({success: true, message: "Your account has been saved"})
+              		res.redirect('/login')
+
+            }
+          });
+          console.log(Users)
+/**
 	try {
 		const hashedPassword = await bcrypt.hash(req.body.password, 10 )
 		users.push({
@@ -41,6 +57,11 @@ router.post('/', checkNotAuthenticated ,async (req, res) => {
 
 	}
 
+	**/
+
 })
+
+const User = require('../model/user');
+
 
 module.exports = router;

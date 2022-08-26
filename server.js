@@ -9,6 +9,8 @@ const app = express();
 const path = require('path'); 
 const connectDB = require('./server/database/connection');
 const studentRoute = require('./server/router/student');
+const User = require('./server/model/user');
+
 const loginRoute = require('./server/router/login');
 const registerRoute = require('./server/router/register');
 const passport = require('passport');
@@ -18,14 +20,15 @@ const dotenv = require('dotenv').config()
 const bcrypt = require('bcrypt')
 const methodOverride = require('method-override');
 
+  
 
 
 const initializePassport = require('./passport-config');
 
 initializePassport(
   passport, 
-  email => users.find(user => user.email === email),
-  id => users.find(user => user.id === id)
+  email => User.find(user => user.email === email),
+  id => User.find(user => user.id === id)
 )
 
 global.users = []
@@ -64,6 +67,7 @@ app.use(bodyParser.json())
 
 app.use('/', studentRoute  );
 app.use('/login', loginRoute  );
+
 app.use('/register', registerRoute  );
 
 app.post('/login', passport.authenticate('local', {
@@ -71,6 +75,8 @@ app.post('/login', passport.authenticate('local', {
   failureRedirect: '/login',
   failureFlash: true
 }))
+
+
 
 
 

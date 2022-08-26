@@ -19,7 +19,7 @@ function checkNotAuthenticated(req, res, next) {
 }
   
 router.get("/",  checkAuthenticated, async(req, res) => {
-res.render('index.ejs', {nome : req.user.nome})
+res.render('index.ejs', {username : req.user.username})
   
   /**  const students = await studentModel.find({});
 
