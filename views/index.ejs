@@ -1,5 +1,62 @@
-	<h1> Bom dia estudante <%= username %> </h1>
+<link rel="stylesheet" href="../css/index.css">
+	
 
+	<section class="hero is-info is-fullheight">
+  <!-- Hero head: will stick at the top -->
+  <div class="hero-head">
+    <header class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item">
+          	Cassoma Escola 
+          </a>
+          <span class="navbar-burger" data-target="navbarMenuHeroC">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navbarMenuHeroC" class="navbar-menu">
+          <div class="navbar-end">
+       
+     <span class="navbar-item">
 	<form action="/login/logout?_method=DELETE"  method=POST>
-		<button type="submit"> Log Out </button>
+	<button class="button is-danger	" type="submit"> Sair da Pagina </button>
 	</form>
+	</span>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <!-- Hero content: will be in the middle -->
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <p class="title is-1">
+        Ola Estudante 
+      </p>
+      <p class="subtitle is-1">
+      <%= username %> 
+
+      </p>
+    </div>
+  </div>
+
+  <!-- Hero footer: will stick at the bottom -->
+  <div class="hero-foot">
+    <nav class="tabs is-boxed is-fullwidth">
+      <div class="container">
+        <ul>
+          <li class="is-active"><a>Overview</a></li>
+          <li><a>Modifiers</a></li>
+          <li><a>Grid</a></li>
+          <li><a>Elements</a></li>
+      
+          <li><a>Components</a></li>
+          <li><a>Layout</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</section>
