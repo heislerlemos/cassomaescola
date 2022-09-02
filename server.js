@@ -79,11 +79,20 @@ app.post('/login', passport.authenticate('local', {
 
 
 
-
+/**
 
 app.listen(3000, function() {
   console.log('O servidor esta em produção na porta  3000')
 })
+**/
+
+//For avoidong Heroku $PORT error
+app.get('/', function(request, response) {
+    var result = 'App is running'
+    response.send(result);
+}).listen(app.get('port'), function() {
+    console.log('O Servidor esta correr 🚀 ', app.get('port'));
+});
 
 
 
