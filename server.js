@@ -1,6 +1,6 @@
-//if(process.env.NODE_ENV !== 'production') {
-  //require('dotenv').config
-//}
+if(process.env.NODE_ENV !== 'production') {
+  require('dotenv').config
+}
 
 const express = require('express');
 const bodyParser= require('body-parser')
@@ -16,15 +16,12 @@ const registerRoute = require('./server/router/register');
 const passport = require('passport');
 const flash = require('express-flash');
 const session = require('express-session');
-//const dotenv = require('dotenv').config()
-const dotenv = require('dotenv');
-
+const dotenv = require('dotenv').config()
 const bcrypt = require('bcrypt')
 const methodOverride = require('method-override');
 
   
-dotenv.config({path:'config.env'})
-  
+
 
 const initializePassport = require('./passport-config');
 
