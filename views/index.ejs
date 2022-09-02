@@ -1,5 +1,5 @@
+
 <link rel="stylesheet" href="../css/index.css">
-	
 
 	<section class="hero is-info is-fullheight">
   <!-- Hero head: will stick at the top -->
@@ -18,10 +18,10 @@
         </div>
         <div id="navbarMenuHeroC" class="navbar-menu">
           <div class="navbar-end">
-       
      <span class="navbar-item">
+
 	<form action="/login/logout?_method=DELETE"  method=POST>
-	<button class="button is-danger	" type="submit"> Sair da Pagina </button>
+	<button class="button is-danger is-large	" type="submit"> Sair </button>
 	</form>
 	</span>
           </div>
@@ -31,15 +31,17 @@
   </div>
 
   <!-- Hero content: will be in the middle -->
-  <div class="hero-body">
+  <div class="hero-body ">
     <div class="container has-text-centered">
       <p class="title is-1">
-        Ola Estudante 
-      </p>
-      <p class="subtitle is-1">
-      <%= username %> 
 
+       <img src="https://api.multiavatar.com/'<%= Math.random(); %>'.png" style="width:150px; height:150px;" > 
       </p>
+      <br>
+        <p class="subtitle is-1">
+            Ola <%= username %>  é te ver se aplicando na
+    </p>
+  
     </div>
   </div>
 
@@ -48,15 +50,13 @@
     <nav class="tabs is-boxed is-fullwidth">
       <div class="container">
         <ul>
-          <li class="is-active"><a>Overview</a></li>
-          <li><a>Modifiers</a></li>
-          <li><a>Grid</a></li>
-          <li><a>Elements</a></li>
+          <li><a>Calendario</a></li>
+          <li><a>Materia</a></li>
+          <li><a>Atividades</a></li>
       
-          <li><a>Components</a></li>
-          <li><a>Layout</a></li>
         </ul>
       </div>
     </nav>
   </div>
 </section>
+

@@ -15,6 +15,23 @@ var UserSchema = new Schema ({
 		unique: true, 
 		required: true
 	},
+
+	curse : {
+		type: String ,
+		unique: true,
+		required: true
+	},
+
+	curse_year : {
+		type: Number,
+		required: true,
+		unique: true
+
+
+
+
+	},
+
 })
 
 
