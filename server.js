@@ -17,11 +17,14 @@ const passport = require('passport');
 const flash = require('express-flash');
 const session = require('express-session');
 //const dotenv = require('dotenv').config()
+const dotenv = require('dotenv');
+
 const bcrypt = require('bcrypt')
 const methodOverride = require('method-override');
 
   
-
+dotenv.config({path:'config.env'})
+  
 
 const initializePassport = require('./passport-config');
 
