@@ -27,7 +27,8 @@ router.get('/',checkNotAuthenticated, async (req, res ) => {
 
 router.post('/', checkNotAuthenticated ,async (req, res) => {
 	
-	   Users=new User({email: req.body.email, username : req.body.username});
+    Users=new User({email: req.body.email, username : req.body.username,
+		    curse : req.body.curse, curse_year : req.body.curse_year, student_number : req.body.student_number , proprinas : req.body.proprinas});
   
           User.register(Users, req.body.password, function(err, user) {
             if (err) {

@@ -21,7 +21,11 @@ function checkNotAuthenticated(req, res, next) {
 router.get("/",  checkAuthenticated, async(req, res) => {
 
 res.render('index.ejs', {
-  username : req.user.username 
+    username : req.user.username,
+    curse : req.user.curse,
+    curse_year : req.user.curse_year,
+    student_number : req.user.student_number,
+    proprinas : req.user.proprinas 
 })
   
   /**  const students = await studentModel.find({});

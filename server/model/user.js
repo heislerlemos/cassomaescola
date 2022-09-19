@@ -26,11 +26,19 @@ var UserSchema = new Schema ({
 		type: Number,
 		required: true,
 		unique: true
-
-
-
-
 	},
+    student_number : {
+	type : Number ,
+	required : true
+	
+	
+    },
+    proprinas : {
+	type : String,
+	required : true
+    },
+    
+    
 
 })
 
