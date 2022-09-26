@@ -10,7 +10,7 @@ const path = require('path');
 const connectDB = require('./server/database/connection');
 const studentRoute = require('./server/router/student');
 const User = require('./server/model/user');
-
+const calendarRoute = require('./server/router/calendar');
 const loginRoute = require('./server/router/login');
 const registerRoute = require('./server/router/register');
 const passport = require('passport');
@@ -65,9 +65,9 @@ app.use(bodyParser.json())
 
 // routes inside the database connection
 
-app.use('/', studentRoute  );
-app.use('/login', loginRoute  );
-
+app.use('/', studentRoute );
+app.use('/login', loginRoute );
+app.use('/calendar', calendarRoute );
 app.use('/register', registerRoute  );
 
 app.post('/login', passport.authenticate('local', {
