@@ -12,16 +12,16 @@ exports.create = (req,res)=>{
     const calendar = new Calendar({
         subject_course : req.body.subject_course,
         detail : req.body.detail,
-        date_start: req.body.gender,
-        status : req.body.status
+        date_start: req.body.date_start,
+        date_end : req.body.date_end
     })
 
     // save user in the database
     calendar
         .save(calendar)
         .then(data => {
-            //res.send(data)
-            res.redirect('/index');
+            res.send(data)
+            //res.redirect('/index');
         })
         .catch(err =>{
             res.status(500).send({
