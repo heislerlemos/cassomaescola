@@ -20,8 +20,8 @@ exports.create = (req,res)=>{
     calendar
         .save(calendar)
         .then(data => {
-            res.send(data)
-            //res.redirect('/index');
+            //res.send(data)
+         res.redirect('/');
         })
         .catch(err =>{
             res.status(500).send({

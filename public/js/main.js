@@ -70,3 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+$("#add_calendar").submit(function(event){
+    alert("Data Inserted Successfully!");
+})
