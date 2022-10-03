@@ -30,3 +30,45 @@ exports.create = (req,res)=>{
         });
 
 }
+
+
+
+
+// adding show page
+
+
+
+
+exports.find = (req, res ) => {
+
+		if(req.query.id){
+			const id = req.query.id;
+
+			Calendar.findById(id)
+				.then(data => {
+					if(!data){
+						res.status(404).send({message: "Não foi encontrado o utilizador pelo id " + id})
+					}else {
+						res.send(data)
+					}
+				})
+				.catch(err =>{
+					res.status(500).send({message: "Erro a obter a casa" + id})
+				})
+		}else{ 
+
+	Calendar.find().sort({ _id: 'descending' })
+
+		.then(calendar => {
+			res.send(calendar)
+
+		})
+
+
+
+
+		.catch(err => {
+			res.status(500).send({message: err.message  || "Um erro occoreu enquanto  buscava-se uma casa"})
+		})
+}
+}
