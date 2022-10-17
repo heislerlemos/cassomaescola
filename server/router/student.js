@@ -21,7 +21,8 @@ function checkNotAuthenticated(req, res, next) {
 }
   
 router.get("/",  checkAuthenticated, async(req, res) => {
-            axios.get('http://localhost:5000/calendar/api/calendars')
+    //axios.get('http://localhost:5000/calendar/api/calendars')
+    axios.get('http://cassomaescola.herokuapp.com/calendar/api/calendars')
         .then(function(response){
 	                 console.log(response.data)
 	    res.render('index', { calendars : response.data, username : req.user.username, curse : req.user.curse, curse_year : req.user.curse_year, student_number : req.user.student_number,

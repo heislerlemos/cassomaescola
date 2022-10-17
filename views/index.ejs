@@ -189,17 +189,27 @@
     <div class="message-body">
     
 // the info goes here
-                            <%- include('_showcalendar.ejs') %>
+    <%- include('_showcalendar.ejs') %>
+
+    <br>
+    <div class="card">
+  <div class="card-content">
+    <div class="content">
+			
 <% for(var i = 0; i < calendars.length; i++) { %>
-<tr>
+		       <tr>
     <td><%= i + 1 %></td>
     <td><%= calendars[i].subject_course %></td>
     <td><%= calendars[i].detail %></td>
     <td><%= calendars[i].date_start %></td>
     <td><%= calendars[i].date_end %></td>
 
-</tr>
-<% } %>
+					       </tr>
+
+					       <% } %>
+    					           </div>
+  </div>
+</div>
   </div>
 </article>
     </div>
