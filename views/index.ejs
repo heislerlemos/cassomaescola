@@ -187,9 +187,19 @@
     <button class="delete" aria-label="delete"></button>
   </div>
     <div class="message-body">
-
+    
 // the info goes here
+                            <%- include('_showcalendar.ejs') %>
+<% for(var i = 0; i < calendars.length; i++) { %>
+<tr>
+    <td><%= i + 1 %></td>
+    <td><%= calendars[i].subject_course %></td>
+    <td><%= calendars[i].detail %></td>
+    <td><%= calendars[i].date_start %></td>
+    <td><%= calendars[i].date_end %></td>
 
+</tr>
+<% } %>
   </div>
 </article>
     </div>

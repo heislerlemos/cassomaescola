@@ -1,0 +1,8 @@
+  /home/heisler/Documents/web_dev/cassomaescola/views:
+  total used in directory 28 available 207.1 GiB
+  drwxrwxr-x 2 heisler heisler 4096 Oct 13 16:56 .
+  drwxrwxr-x 7 heisler heisler 4096 Oct 13 16:44 ..
+  -rw-rw-r-- 1 heisler heisler 5201 Oct 11 16:02 index.ejs
+  -rw-rw-r-- 1 heisler heisler 2009 Aug 26 14:54 login.ejs
+  -rw-rw-r-- 1 heisler heisler 1070 Sep 19 13:31 register.ejs
+  -rw-rw-r-- 1 heisler heisler  272 Oct 13 16:56 _showcalendar.ejs
