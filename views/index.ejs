@@ -1,10 +1,10 @@
-
+ 
 <link rel="stylesheet" href="../css/index.css">
     <script type="text/javascript" src="../js/main.js"></script>
  <link href='../css/main.css' rel='stylesheet' />
     <script src='../js/fullcalendarmain.js'></script>
 
-	<section class="hero is-info is-fullheight">
+	<section class="hero is-light is-fullheight">
   <!-- Hero head: will stick at the top -->
   <div class="hero-head">
     <header class="navbar">
@@ -186,7 +186,7 @@
 
     <br>
 <article class="message">
-  <div class="message-header">
+  <div class="message-header ">
     <%= i + 1 %>
     <button class="delete" aria-label="delete"></button>
   </div>						 
@@ -195,10 +195,12 @@
    <div class="message-body">
 <tr>
     <td><%= calendars[i].subject_course %></td>
+    <hr>
    <td><%= calendars[i].detail %></td>
    <hr>
-   <td><%= calendars[i].date_start %></td>						   
-  <td><%= calendars[i].date_end %></td>
+ <td><%= moment(calendars[i].date_start).format('DD-MM-YYYY') %></td>
+ <hr>
+</td><%= moment(calendars[i].date_end).format('DD-MM-YYYY') %></td>
 
  </tr>						   
 

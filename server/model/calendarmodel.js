@@ -15,7 +15,8 @@ var CalendarSchema = new Schema ({
 	},
 
 	date_start: {
-		type: Date 		
+		type: Date,
+		default: Date.now() 		
 		
 	},
 

@@ -1,4 +1,5 @@
 var Calendar = require("../model/calendarmodel");	
+var moment = require('moment');
 
 // create and save new user
 exports.create = (req,res)=>{
@@ -12,8 +13,8 @@ exports.create = (req,res)=>{
     const calendar = new Calendar({
         subject_course : req.body.subject_course,
         detail : req.body.detail,
-        date_start: req.body.date_start,
-        date_end : req.body.date_end
+        date_start: req.body.date_start.toDateString() ,
+        date_end : req.body.date_end 
     })
 
     // save user in the database
@@ -21,7 +22,7 @@ exports.create = (req,res)=>{
         .save(calendar)
         .then(data => {
             //res.send(data)
-         res.redirect('/calendar');
+         res.redirect('/');
         })
         .catch(err =>{
             res.status(500).send({

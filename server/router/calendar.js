@@ -13,7 +13,7 @@ router.get('/', (req,  res) =>  {
 	subject_course : req.calendar.subject_course,
 	detail : req.calendar.detail,
 	date_start : req.calendar.date_start,
-	date_end : req.calendar.date_end
+	date_end : req.calendar.date_end,
 
     })
     

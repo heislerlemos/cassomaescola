@@ -19,8 +19,13 @@ const session = require('express-session');
 const dotenv = require('dotenv').config()
 const bcrypt = require('bcrypt')
 const methodOverride = require('method-override');
+var moment = require('moment');
+app.locals.moment = require('moment');
+var calendar = require('./server/model/calendarmodel');
 
-  
+const dateTime = moment().format('YYYY-MM-DD');
+
+console.log(dateTime);
 
 
 const initializePassport = require('./passport-config');
@@ -98,6 +103,10 @@ app.get('/', function(request, response) {
 });
 
 
+function isNullOrUndefined (value) {  
+  return value == null
 
+    // `value == null` is the same as `value === undefined || value === null`
+}
 
 module.exports = app
