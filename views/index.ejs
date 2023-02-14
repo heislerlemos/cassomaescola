@@ -176,47 +176,41 @@
     </form>
 </div>
 <br>
+<!--- Adding content media -->
 
-    <br>
-    <div class="columns is-multiline is-mobile">
-    <% for(var i = 0; i < calendars.length; i++) { %>
-
-  <div class="column">
-
-
-    <br>
-<article class="message">
-  <div class="message-header ">
-    <%= i + 1 %>
-    <button class="delete" aria-label="delete"></button>
-  </div>						 
-			
-
-   <div class="message-body">
-<tr>
-    <td><%= calendars[i].subject_course %></td>
-    <hr>
-   <td><%= calendars[i].detail %></td>
-   <hr>
- <td><%= moment(calendars[i].date_start).format('DD-MM-YYYY') %></td>
- <hr>
-</td><%= moment(calendars[i].date_end).format('DD-MM-YYYY') %></td>
-
- </tr>						   
-
-  </div>
-</article>
-
-
-</div>
+<div class="container">
+  <% for(var i = 0; i < calendars.length; i++) { %>
+<article class="media">
  
-	<% } %>
-       </div>
- </div>
+  <div class="media-content">
+    <div class="content">
+      <p>
+          <div class="level-left">
+                    <a class="level-item">
 
+                    <strong> Artigo <%= i + 1 %></strong> 
+                  </a>
+                  <a class="level-item">
+                          <p>Curso: <%= calendars[i].subject_course %> </p>
+                     </a>
 
-       <br>
-    <br>
+        <a class="level-item">
+        <small>Inicio: <%= moment(calendars[i].date_start).format('DD-MM-YYYY') %></small> 
+      </a>
+      <a class="level-item">
+        <small> Fim:<%= moment(calendars[i].date_end).format('DD-MM-YYYY') %></small>
+      </a>
+    </div>
+        <span><%= calendars[i].detail %></span>
+    </div>
+  
+  </div>
+<hr>
+
+</article>
+  <% } %>
+</div>
+
 </div>
   <button class="modal-close is-large" aria-label="close"></button>
 
