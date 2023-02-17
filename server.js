@@ -13,6 +13,7 @@ const User = require('./server/model/user');
 const calendarRoute = require('./server/router/calendar');
 const loginRoute = require('./server/router/login');
 const registerRoute = require('./server/router/register');
+const chatStudentRoute = require('./server/router/chatstudent');
 const passport = require('passport');
 const flash = require('express-flash');
 const session = require('express-session');
@@ -96,6 +97,7 @@ app.use('/', studentRoute );
 app.use('/login', loginRoute );
 app.use('/calendar', calendarRoute );
 app.use('/register', registerRoute  );
+app.use('/chatstudent', chatStudentRoute  );
 
 app.post('/login', passport.authenticate('local', {
   successRedirect: '/',
