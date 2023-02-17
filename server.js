@@ -30,6 +30,26 @@ console.log(dateTime);
 
 const initializePassport = require('./passport-config');
 
+
+// adding chatgpt
+const {Configuration, OpenAIApi} = require("openai");
+
+const configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+
+const openai = new OpenAIApi(configuration);
+
+async function runCompletion(){
+  const completion = await openai.createCompletion({
+    model: "text-davinci-003",
+    prompt: "onde foi inventado o nome leandro",
+  });
+  console.log(completion.data.choices[0].text);
+}
+
+runCompletion();
+
 initializePassport(
   passport, 
   email => User.find(user => user.email === email),
