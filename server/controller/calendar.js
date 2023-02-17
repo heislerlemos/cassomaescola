@@ -13,7 +13,7 @@ exports.create = (req,res)=>{
     const calendar = new Calendar({
         subject_course : req.body.subject_course,
         detail : req.body.detail,
-        date_start: req.body.date_start.toDateString() ,
+        date_start: req.body.date_start,
         date_end : req.body.date_end 
     })
 

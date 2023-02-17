@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="../css/index.css">
     <script type="text/javascript" src="../js/main.js"></script>
  <link href='../css/main.css' rel='stylesheet' />
+
     <script src='../js/fullcalendarmain.js'></script>
 
 	<section class="hero is-light is-fullheight">
@@ -43,19 +44,15 @@
       <br>
         <p class="subtitle is-1">
             Ola <%= username %>  é bom te ver se aplicando na escola , pergunta-me qualquer coisa
+            <hr>
 </p>
 <div>
         <link rel="icon" href="/dog.png" />
       </Head>
       <main class="main">
-        <form >
-          <input
-            type="text"
-            name="animal"
-            placeholder="Enter an animal"
-            value=""
-            onChange=""
-          />
+        <form action="/chatstudent" method="POST" id="addchat">
+         <label for="prompt"></label>
+    <input type="prompt" id="prompt" name="prompt" required>
           <br>
           <input type="submit" value="Submeter" />
         </form>

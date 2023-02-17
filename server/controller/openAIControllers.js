@@ -15,7 +15,9 @@ async function runCompletion(){
     model: "text-davinci-003",
     prompt: prompt,
   });
-  res.status(200).json({ success: true, msg: completion.data.choices[0].text });
+//res.status(200).json ({ success: true, msg: completion.data.choices[0].text });
+  res.render('chat',{  msg: completion.data.choices[0].text });
+
 
   console.log(completion.data.choices[0].text);
 }
@@ -23,5 +25,8 @@ async function runCompletion(){
 runCompletion();
 
 };
+
+
+
 
 module.exports = { getEdit};
