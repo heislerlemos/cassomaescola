@@ -25,7 +25,7 @@
      <span class="navbar-item">
 
 	<form action="/login/logout?_method=DELETE"  method=POST>
-	<button class="button is-danger is-large	" type="submit"> Sair </button>
+	<button class="button is-danger 	" type="submit"> Sair </button>
 	</form>
 	</span>
           </div>
@@ -47,12 +47,11 @@
             <hr>
 </p>
 <div>
-        <link rel="icon" href="/dog.png" />
       </Head>
       <main class="main">
         <form action="/chatstudent" method="POST" id="addchat">
          <label for="prompt"></label>
-    <input type="prompt" id="prompt" name="prompt" required>
+    <input  class="input is-focus" placeholder="Escreva aquilo que pensa " type="prompt" id="prompt" name="prompt" required>
           <br>
           <input type="submit" value="Submeter" />
         </form>
