@@ -46,7 +46,7 @@ async function runCompletion(){
     model: "text-davinci-003",
     prompt: "onde foi inventado o nome leandro",
   });
-  console.log(completion.data.choices[0].text);
+  //console.log(completion.data.choices[0].text);
 }
 
 runCompletion();

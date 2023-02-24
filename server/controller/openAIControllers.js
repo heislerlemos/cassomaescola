@@ -14,12 +14,16 @@ async function runCompletion(){
   const completion = await openai.createCompletion({
     model: "text-davinci-003",
     prompt: prompt,
+     max_tokens: 64,
+  top_p: 1.0,
+  frequency_penalty: 0.0,
+  presence_penalty: 0.0,
   });
 //res.status(200).json ({ success: true, msg: completion.data.choices[0].text });
   res.render('chat',{  msg: completion.data.choices[0].text });
 
 
-  console.log(completion.data.choices[0].text);
+//  console.log(completion.data.choices[0].text);
 }
 
 runCompletion();
